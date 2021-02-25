@@ -325,19 +325,6 @@ function areHookInputsEqual(
   }
 
   if (nextDeps.length !== prevDeps.length) {
-    if (__DEV__) {
-      // Warn the developer about accidental matches in dev
-      console.warn(
-        'The final argument passed to %s changed size between renders. When you insert ' +
-          'multiple variable-length arrays into this array always prepend the length ' +
-          'to avoid accidental matches.\n\n' +
-          'Previous: %s\n' +
-          'Incoming: %s',
-        currentHookNameInDev,
-        `[${prevDeps.join(', ')}]`,
-        `[${nextDeps.join(', ')}]`,
-      );
-    }
     return false;
   }
   for (let i = 0; i < prevDeps.length; i++) {
